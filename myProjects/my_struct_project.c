@@ -10,30 +10,30 @@ typedef struct {
 } CAT;
 
 int collection[5] = { 0,0,0,0,0 };
-
 CAT cats[5];
 
-void initData();
-void printCat(int selected);
+void initCats();
+void printCat(int collect);
 int checkCollection();
 
-int main_struct(void)
+int main(void)
 {
 	srand(time(NULL));
 
-	initData();
+	initCats();
 	while (1)
 	{
-		printf("=== 아무 키나 눌러서 당신의 고양이를 만나보세요. ===\n\n");
+		printf("엔터를 치고 당신의 고양이를 만나보세요.\n");
 		getchar();
 
-		int selected = rand() % 5;
-		printCat(selected);
-		collection[selected] = 1;
-
+		int collect = rand() % 5;
+		printCat(collect);
+		collection[collect] = 1;
 		int collectAll = checkCollection();
+		
 		if (collectAll == 1)
 		{
+			printf("모든 고양이를 모으셨네요.\n\n");
 			break;
 		}
 	}
@@ -41,7 +41,7 @@ int main_struct(void)
 	return 0;
 }
 
-void initData()
+void initCats()
 {
 	cats[0].name = "깜냥이";
 	cats[0].age = 5;
@@ -69,14 +69,14 @@ void initData()
 	cats[4].level = 5;
 }
 
-void printCat(int selected)
+void printCat(int collect)
 {
-	printf("  이름  : %s\n", cats[selected].name);
-	printf("  나이  : %d\n", cats[selected].age);
-	printf("  성격  : %s\n", cats[selected].character);
-	printf("  레벨  :");
+	printf("  이름:  %s\n", cats[collect].name);
+	printf("  나이:  %d\n", cats[collect].age);
+	printf("  특징:  %s\n", cats[collect].character);
+	printf("  레벨:  ");
 
-	for (int i = 0; i < cats[selected].level; i++)
+	for (int i = 0; i < cats[collect].level; i++)
 	{
 		printf("★");
 	}
@@ -85,27 +85,21 @@ void printCat(int selected)
 
 int checkCollection()
 {
-	int collectAll = 1; // 고양이를 다 모은 상태
+	int collectAll = 1;
 
-	printf("\n\n=== 보유한 고양이 목록 ===\n\n");
 	for (int i = 0; i < 5; i++)
 	{
-		if (collection[i] == 0)
-		{
-			printf("%10s", "(빈 박스)");
-			collectAll = 0; // 고양이를 다 모으지 못한 상태
-		}
-		else
+		if (collection[i] == 1)
 		{
 			printf("%10s", cats[i].name);
 		}
+		else
+		{
+			printf("%10s", "(빈자리)");
+			collectAll = 0;
+		}
 	}
-	printf("\n\n============================================\n\n");
-
-	if (collectAll)
-	{
-		printf("\n모든 고양이를 모으셨습니다.\n");
-	}
+	printf("\n\n====================================================\n\n");
 
 	return collectAll;
 }
