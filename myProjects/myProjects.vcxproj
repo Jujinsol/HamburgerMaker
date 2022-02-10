@@ -141,6 +141,8 @@
   <ItemGroup>
     <ClCompile Include="my_array_project.c" />
     <ClCompile Include="my_file_project.c" />
+    <ClCompile Include="my_m_array_project.c" />
+    <ClCompile Include="my_pointer_project.c" />
     <ClCompile Include="my_struct_project.c" />
     <ClCompile Include="rock.c" />
   </ItemGroup>

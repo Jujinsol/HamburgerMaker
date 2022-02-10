@@ -16,7 +16,7 @@ void initCats();
 void printCat(int collect);
 int checkCollection();
 
-int main(void)
+int main_struct(void)
 {
 	srand(time(NULL));
 
