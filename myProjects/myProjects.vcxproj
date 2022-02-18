@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="hamburger.c" />
     <ClCompile Include="my_array_project.c" />
     <ClCompile Include="my_file_project.c" />
     <ClCompile Include="my_m_array_project.c" />

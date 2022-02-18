@@ -10,7 +10,7 @@ void printFish();
 void decreaseWater(long elapseTime);
 int checkWater();
 
-int main(void)
+int main_pointer(void)
 {
 	long startTime = 0;
 	long totalTime = 0;
@@ -104,7 +104,7 @@ void decreaseWater(long elapseTime)
 {
 	for (int i = 0; i < 6; i++)
 	{
-		fishbowl[i] -= (level * 3 * (int)elapseTime);
+		fishbowl[i] -= (level * 2 * (int)elapseTime);
 		if (fishbowl[i] < 0)
 		{
 			fishbowl[i] = 0;
